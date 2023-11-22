@@ -43,7 +43,7 @@ const callRefreshToken = ({ clientId, clientSecret, refreshToken }) => {
     })
       .setTimeout(0)
       .on('error', (error) => {
-        callback(error);
+        reject(error);
       });
     request.write(`grant_type=refresh_token&refresh_token=${encodeURI(refreshToken)}&client_id=${clientId}&client_secret=${clientSecret}`);
     request.end();
